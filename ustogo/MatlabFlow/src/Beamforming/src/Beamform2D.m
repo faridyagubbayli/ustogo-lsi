@@ -273,7 +273,7 @@ function [bf_im, offset_min, offset_max] = Beamform2D(probe, target_phantom, apo
                 if (dump_fpga_verification_outputs == 1)
                 else
                     for col = 1 : n_col
-                        rf(1, col, :) = filtfilt(b_hp, a_hp, rf(1, col, :));
+                        rf(1, col, :) = filtfilt(b_hp, a_hp, squeeze(rf(1, col, :)));
                     end
                 end
             end

@@ -242,7 +242,7 @@ if (do_beamforming_explicitly == 0)
             (linear == 1 && exist(fullfile('InsonificationAndBeamforming', 'data', strcat('bf_im_linear_', target_phantom, '.mat')), 'file') ~= 2) || ...
             (linear == 0 && exist(fullfile('InsonificationAndBeamforming', 'data', strcat('bf_im_phased_', target_phantom, '.mat')), 'file') ~= 2) )
         warning('Rebeamforming for phantom "%s"', target_phantom);
-        bf_im = InsonifyAndBeamformPhantom(phantom, probe, apod_full, el_max, image);
+        bf_im = InsonifyAndBeamformPhantom(phantom, probe, tx_focus, apod_full, el_max, image);
         cd(basepath);
         if (linear == 1)
             movefile(fullfile('InsonificationAndBeamforming', 'data', 'bf_im_linear.mat'), fullfile('InsonificationAndBeamforming', 'data', strcat('bf_im_linear_', target_phantom, '.mat')));

@@ -55,7 +55,7 @@ function [bf_im] = InsonifyAndBeamformPhantom(phantom, probe, tx_focus, apod_ful
     if (probe.is2D == 0 && probe.linear == 1)
         % Its size is M*N, where M is the number of time samples
         % and N is the number of probe elements.
-        [rf] = SimulateAndBeamformRawData2DLinear(phantom, probe, tx_focus, apod_full, el_max);
+        [rf] = SimulateAndBeamformRawData2DLinear(phantom, probe, tx_focus, apod_full, el_max, image);
     elseif (probe.is2D == 0 && probe.linear == 0)
         % Its size is M*N, where M is the number of time samples
         % and N is the number of probe elements.
@@ -88,7 +88,7 @@ function [bf_im] = InsonifyAndBeamformPhantom(phantom, probe, tx_focus, apod_ful
     %% Demodulate and low-pass filter
     % This code supports both 2D and 3D images
     for i = 1 : size(rf, 3)
-        bf_im(:, :, i) = DemodulateRFImage(probe, rf(:, :, i), 1, 0); %TODO access this script from the appropriate folder
+        bf_im(:, :, i) = DemodulateRFImage(probe, rf(:, :, i), 1, 0, 0); %TODO access this script from the appropriate folder
     end
     
     if (probe.linear == 1)

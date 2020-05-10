@@ -39,7 +39,7 @@
 %
 % Outputs: rf - Radio-frequency matrix containing the summed backscattered echoes
 
-function [rf] = SimulateAndBeamformRawData2DLinear(phantom, probe, tx_focus, apod_full, el_max)
+function [rf] = SimulateAndBeamformRawData2DLinear(phantom, probe, tx_focus, apod_full, el_max, image)
 
     %% Parameter check
     if nargin < 2
