@@ -83,7 +83,7 @@ function [] = PlotEmittedFieldIntensityInSpace(probe, min_x, max_x, min_z, max_z
     else
         title_string = sprintf('Two-way Field (cell size %.2f mm)', grain * 1000);
     end
-    figure
+%     figure
     imagesc(1 : ((max_x - min_x) / grain) + 1, 1 : ((max_z - min_z) / grain) + 1, field);
     title(title_string);
     colorbar;
